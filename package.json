@@ -1,0 +1,54 @@
+{
+  "name": "statac",
+  "displayName": "Statac",
+  "description": "Problems as you type, completion, hover, going to things and renaming pages, in a Statac site.",
+  "version": "0.1.0",
+  "publisher": "statac",
+  "license": "MIT OR Apache-2.0",
+  "homepage": "https://statac.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/statac-ssg/vscode-statac"
+  },
+  "engines": {
+    "vscode": "^1.91.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/statac.yaml"
+  ],
+  "main": "./extension.js",
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false,
+      "description": "Statac reads the whole site, so it runs only in a folder you trust."
+    },
+    "virtualWorkspaces": false
+  },
+  "contributes": {
+    "configuration": {
+      "title": "Statac",
+      "properties": {
+        "statac.path": {
+          "type": "string",
+          "default": "",
+          "scope": "machine",
+          "markdownDescription": "Where `statac` is, to use one other than the one found on the path or where an installer puts it."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "statac.restart",
+        "title": "Restart the Language Server",
+        "category": "Statac"
+      }
+    ]
+  },
+  "dependencies": {
+    "vscode-languageclient": "10.1.2"
+  }
+}

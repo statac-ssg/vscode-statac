@@ -19,9 +19,9 @@ const INSTALLED = [
   path.join(process.env.LOCALAPPDATA || "", "Microsoft", "WinGet", "Links"),
 ];
 
-// A site's settings, front matter, writing and data, and its templates.
-// The server leaves alone any file outside a site.
-const LANGUAGES = ["markdown", "yaml", "json", "html", "xml"];
+// A site's settings, front matter, writing and data, its templates, and
+// `published.txt`. The server leaves alone any file outside a site.
+const LANGUAGES = ["markdown", "yaml", "json", "html", "xml", "plaintext"];
 
 const NOT_FOUND =
   "Statac isn't installed, or VS Code can't find it. Install it as " +

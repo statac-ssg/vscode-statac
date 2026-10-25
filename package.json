@@ -18,7 +18,8 @@
     "Linters"
   ],
   "activationEvents": [
-    "workspaceContains:**/statac.yaml"
+    "workspaceContains:**/statac.yaml",
+    "workspaceContains:**/content/**"
   ],
   "main": "./extension.js",
   "capabilities": {

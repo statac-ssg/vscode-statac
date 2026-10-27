@@ -1,2 +1,4 @@
 node_modules/
 *.vsix
+# Written from LICENSE-MIT and LICENSE-APACHE when the extension is packaged.
+LICENSE.md

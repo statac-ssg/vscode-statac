@@ -8,7 +8,10 @@
   "homepage": "https://statac.dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/statac-ssg/vscode-statac"
+    "url": "https://git.statac.dev/statac/vscode-statac"
+  },
+  "bugs": {
+    "url": "https://git.statac.dev/statac/vscode-statac/issues"
   },
   "engines": {
     "vscode": "^1.91.0"
@@ -16,6 +19,13 @@
   "categories": [
     "Programming Languages",
     "Linters"
+  ],
+  "keywords": [
+    "statac",
+    "static site generator",
+    "markdown",
+    "front matter",
+    "language server"
   ],
   "activationEvents": [
     "workspaceContains:**/statac.yaml",
@@ -48,6 +58,9 @@
         "category": "Statac"
       }
     ]
+  },
+  "scripts": {
+    "vscode:prepublish": "node -e \"const f=require('fs');f.writeFileSync('LICENSE.md','Statac for VS Code is licensed under the MIT licence or the Apache License 2.0, at your choice. Both follow.\\n\\n'+f.readFileSync('LICENSE-MIT','utf8')+'\\n'+f.readFileSync('LICENSE-APACHE','utf8'))\""
   },
   "dependencies": {
     "vscode-languageclient": "10.1.2"

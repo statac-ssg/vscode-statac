@@ -118,9 +118,11 @@ async function stop() {
 async function offerToQuieten(context) {
   const asked = new Set(context.globalState.get("asked", []));
   const folders = new Map();
-  for (const file of await vscode.workspace.findFiles("**/statac.yaml", "**/node_modules/**")) {
-    const folder = vscode.workspace.getWorkspaceFolder(file);
-    if (folder) {
+  for (const folder of vscode.workspace.workspaceFolders || []) {
+    // The same sites the extension starts for: statac.yaml, or a content
+    // folder.
+    const site = new vscode.RelativePattern(folder, "{**/statac.yaml,**/content/**}");
+    if ((await vscode.workspace.findFiles(site, "**/node_modules/**", 1)).length) {
       folders.set(folder.uri.toString(), folder);
     }
   }

@@ -19,7 +19,7 @@ const INSTALLED = [
   path.join(process.env.LOCALAPPDATA || "", "Microsoft", "WinGet", "Links"),
 ];
 
-// A site's settings, front matter, writing and data, its templates, and
+// A site's settings, front matter, content and data, its templates, and
 // `published.txt`. The server leaves alone any file outside a site.
 const LANGUAGES = ["markdown", "yaml", "json", "html", "xml", "plaintext"];
 
@@ -27,10 +27,10 @@ const NOT_FOUND =
   "Statac isn't installed, or VS Code can't find it. Install it as " +
   "statac.dev/install says, or give its path as Statac: Path in the settings.";
 
-const QUIETEN =
-  "In this site, VS Code's own link suggestions repeat Statac's, and offer " +
-  "files, which aren't how links are written here. Turn VS Code's off for " +
-  "this site? This is kept in its .vscode/settings.json.";
+const QUIETEN = (folder) =>
+  "VS Code suggests files in links, but a link in a Statac site names a URL, " +
+  `which Statac suggests. Turn off VS Code's link suggestions in ${folder}? ` +
+  "VS Code saves this in that folder's .vscode/settings.json.";
 const TURN_OFF = "Turn Off";
 const LEAVE_ON = "Leave On";
 
@@ -131,7 +131,7 @@ async function offerToQuieten(context) {
     if (asked.has(key) || !markdown.get("suggest.paths.enabled", true)) {
       continue;
     }
-    const answer = await vscode.window.showInformationMessage(QUIETEN, TURN_OFF, LEAVE_ON);
+    const answer = await vscode.window.showInformationMessage(QUIETEN(folder.name), TURN_OFF, LEAVE_ON);
     // Closed unanswered, it is asked again next time.
     if (!answer) {
       continue;

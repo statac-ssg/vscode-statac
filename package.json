@@ -1,7 +1,7 @@
 {
   "name": "statac",
   "displayName": "Statac",
-  "description": "Problems as you type, completion, hover, going to things and renaming pages, in a Statac site.",
+  "description": "Statac's language server: problems as you type, completion, hover, go to definition, find references, fixes, and links updated when a page is renamed.",
   "version": "0.1.0",
   "publisher": "statac",
   "license": "MIT OR Apache-2.0",

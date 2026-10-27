@@ -4,6 +4,7 @@
   "description": "Statac's language server: problems as you type, completion, hover, go to definition, find references, fixes, and links updated when a page is renamed.",
   "version": "0.1.0",
   "publisher": "statac",
+  "icon": "icon.png",
   "license": "MIT OR Apache-2.0",
   "homepage": "https://statac.dev",
   "repository": {
